@@ -5,6 +5,9 @@ import Home from '../Components/Home';
 import Products from '../Components/Products';
 import Document from '../Components/Document';
 import Single_Product from '../Components/Single_Product';
+import Profile from '../Components/Profile';
+import Edit_Profile from '../Components/Edit_Profile';
+import Contact from '../Components/Contact';
 
 const website_roots = createBrowserRouter([
     {
@@ -27,7 +30,21 @@ const website_roots = createBrowserRouter([
             },
             {
                 path : '/documents',
-                element : <Document></Document>
+                element : <Document></Document>,
+                children : [
+                    {
+                        path : '/documents',
+                        element : <Profile></Profile>
+                    },
+                    {
+                        path : '/documents/editProfile',
+                        element : <Edit_Profile></Edit_Profile>
+                    },
+                    {
+                        path : '/documents/contact',
+                        element : <Contact></Contact>
+                    },
+                ]
             },
         ]
     }
